@@ -1,48 +1,48 @@
 import { html, css, LitElement } from "lit";
 import { customElement, state, property } from "lit/decorators.js";
-import { menuIcon } from "./icons";
-
+import { menuIcon, closeIcon } from "./icons";
 
 @customElement("responsive-navbar")
 export class ResponsiveNavbar extends LitElement {
   static styles = css`
     #nav {
-      padding: 0.5rem 2rem;
+      padding: 0.25rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: var(--navbar-bg, lightgray);
+      background-color: var(--navbar-background-color, #ffffff);
     }
-    #menu-icon__container {
+    #menu-icon__button {
       display: none;
     }
     @media only screen and (max-width: 475px) {
       #nav {
-        padding: 0.5rem 2rem 0.5rem 0;
+        padding: 0.5rem 2rem 0.5rem 1rem;
         justify-content: initial;
       }
-      #menu-icon__container {
-        width: 48px;
-        height: 48px;
+      #menu-icon__button {
+        padding: 1rem;
         display: flex;
+        background-color: transparent;
+        border: none;
         align-items: center;
         justify-content: center;
         margin-right: 0.5rem;
+        color: inherit;
       }
       .navlinks__container {
         width: 100%;
-        height: 100vh;
+        height: 91vh;
         display: none;
-        background-color: var(--navbar-bg, lightgray);
-        flex-direction: column;
+        background-color: var(--menu-background-color, #ffffff);
         position: absolute;
-        top: 0;
+        top: 9vh;
         right: 0;
         bottom: 0;
         left: 0;
       }
       .navlinks__container--open {
-        display: flex;
+        display: block;
       }
     }
   `;
@@ -50,27 +50,33 @@ export class ResponsiveNavbar extends LitElement {
   @property({ type: String })
   menuAlign = "left";
 
-  @state()
-  _menuOpen:boolean = false;
+  @property({ type: Boolean, reflect: true, attribute: "menu-open" })
+  menuOpen: boolean = false;
 
   render() {
     return html`<nav id="nav">
-      <div id="menu-icon__container" @click=${this._toggleMenu}>
-        ${menuIcon}
-      </div>
+      <button id="menu-icon__button" @click=${this._toggleMenu}>
+        ${this.menuOpen
+          ? html`<slot name="close-icon"><span>${closeIcon}</span></slot>`
+          : html`<slot name="menu-icon"><span>${menuIcon}</span></slot>`}
+      </button>
       <div class="logo__container">
         <slot name="logo">
           <h3>Your Logo</h3>
         </slot>
       </div>
-      <div class="navlinks__container ${this._menuOpen ? '  navlinks__container--open' : ''}">
+      <div
+        class="navlinks__container ${this.menuOpen
+          ? "  navlinks__container--open"
+          : ""}"
+      >
         <slot name="navlinks"></slot>
       </div>
     </nav>`;
   }
 
   private _toggleMenu() {
-    this._menuOpen = !this._menuOpen;
+    this.menuOpen = !this.menuOpen;
   }
 }
 
