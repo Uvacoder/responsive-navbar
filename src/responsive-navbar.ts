@@ -1,5 +1,5 @@
 import { html, css, LitElement } from "lit";
-import { customElement, state, property } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { menuIcon, closeIcon } from "./icons";
 
 @customElement("responsive-navbar")

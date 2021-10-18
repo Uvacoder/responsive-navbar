@@ -59,7 +59,7 @@ responsive-navbar {
 
 @media only screen and (max-width: 475px) {
   .navlinks__list {
-    margin: 3rem;
+    padding: 3rem 0 0 2rem;
     align-items: flex-start;
     flex-direction: column;
   }
