@@ -5,7 +5,7 @@ import { menuIcon, closeIcon } from "./icons";
 @customElement("responsive-navbar")
 export class ResponsiveNavbar extends LitElement {
   static styles = css`
-    #nav {
+    .nav {
       padding: 0.25rem 2rem;
       display: flex;
       align-items: center;
@@ -16,7 +16,7 @@ export class ResponsiveNavbar extends LitElement {
       display: none;
     }
     @media only screen and (max-width: 475px) {
-      #nav {
+      .nav {
         padding: 0.5rem 2rem 0.5rem 1rem;
         justify-content: initial;
       }
@@ -47,14 +47,19 @@ export class ResponsiveNavbar extends LitElement {
     }
   `;
 
-  @property({ type: String })
-  menuAlign = "left";
+  // TODO add property to make navbar stick on scroll up
+  // @property({ type: Boolean, reflect: true, attribute: "sticky" })
+  // sticky = false;
+
+  // TODO add property to change location of desktop nav
+  // @property({ type: String })
+  // menuAlign = "left";
 
   @property({ type: Boolean, reflect: true, attribute: "menu-open" })
   menuOpen: boolean = false;
 
   render() {
-    return html`<nav id="nav">
+    return html`<nav class="nav">
       <button id="menu-icon__button" @click=${this._toggleMenu}>
         ${this.menuOpen
           ? html`<slot name="close-icon"><span>${closeIcon}</span></slot>`
