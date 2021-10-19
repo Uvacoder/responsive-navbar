@@ -5,7 +5,14 @@ import { menuIcon, closeIcon } from "./icons";
 @customElement("responsive-navbar")
 export class ResponsiveNavbar extends LitElement {
   static styles = css`
+    header {
+      width: 100%;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+    }
     .nav {
+      width: 100%;
       padding: 0.25rem 2rem;
       display: flex;
       align-items: center;
@@ -17,7 +24,7 @@ export class ResponsiveNavbar extends LitElement {
     }
     @media only screen and (max-width: 475px) {
       .nav {
-        padding: 0.5rem 2rem 0.5rem 1rem;
+        padding: 0.5rem 2rem 0.5rem 0;
         justify-content: initial;
       }
       #menu-icon__button {
@@ -32,11 +39,11 @@ export class ResponsiveNavbar extends LitElement {
       }
       .navlinks__container {
         width: 100%;
-        height: 91vh;
+        height: calc(100vh - 64px);
         display: none;
         background-color: var(--menu-background-color, #ffffff);
         position: absolute;
-        top: 9vh;
+        top: 64px;
         right: 0;
         bottom: 0;
         left: 0;
@@ -59,25 +66,26 @@ export class ResponsiveNavbar extends LitElement {
   menuOpen: boolean = false;
 
   render() {
-    return html`<nav class="nav">
-      <button id="menu-icon__button" @click=${this._toggleMenu}>
-        ${this.menuOpen
-          ? html`<slot name="close-icon"><span>${closeIcon}</span></slot>`
-          : html`<slot name="menu-icon"><span>${menuIcon}</span></slot>`}
-      </button>
-      <div class="logo__container">
-        <slot name="logo">
-          <h3>Your Logo</h3>
-        </slot>
-      </div>
-      <div
-        class="navlinks__container ${this.menuOpen
-          ? "  navlinks__container--open"
-          : ""}"
-      >
-        <slot name="navlinks"></slot>
-      </div>
-    </nav>`;
+    return html` <header>
+      <nav class="nav">
+        <button id="menu-icon__button" @click=${this._toggleMenu}>
+          ${this.menuOpen
+            ? html`<slot name="close-icon"><span>${closeIcon}</span></slot>`
+            : html`<slot name="menu-icon"><span>${menuIcon}</span></slot>`}
+        </button>
+        <div class="logo__container">
+          <slot name="logo">
+          </slot>
+        </div>
+        <div
+          class="navlinks__container ${this.menuOpen
+            ? "  navlinks__container--open"
+            : ""}"
+        >
+          <slot name="navlinks"></slot>
+        </div>
+      </nav>
+    </header>`;
   }
 
   private _toggleMenu() {
