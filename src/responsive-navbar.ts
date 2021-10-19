@@ -50,6 +50,7 @@ export class ResponsiveNavbar extends LitElement {
         right: 0;
         bottom: 0;
         left: 0;
+        z-index: 9999;
       }
       .navlinks__container--open {
         display: block;
