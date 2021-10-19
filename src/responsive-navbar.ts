@@ -2,6 +2,8 @@ import { html, css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { menuIcon, closeIcon } from "./icons";
 
+export const tagName = 'responsive-navbar';
+
 @customElement("responsive-navbar")
 export class ResponsiveNavbar extends LitElement {
   static styles = css`
