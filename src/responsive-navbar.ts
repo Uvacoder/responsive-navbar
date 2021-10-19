@@ -97,6 +97,7 @@ export class ResponsiveNavbar extends LitElement {
 
   private _toggleMenu() {
     this.menuOpen = !this.menuOpen;
+    document.body.toggleAttribute('no-scroll');
   }
 }
 
