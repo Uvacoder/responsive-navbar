@@ -7,17 +7,18 @@ export class ResponsiveNavbar extends LitElement {
   static styles = css`
     header {
       width: 100%;
-      height: 64px;
+      min-height: 64px;
       display: flex;
-      justify-content: center;
     }
     .nav {
       width: 100%;
-      padding: 0.25rem 2rem;
+      padding: 0.25rem 1rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       background-color: var(--navbar-background-color, #ffffff);
+    }
+    .nav--align-right {
+      justify-content: space-between
     }
     #menu-icon__button {
       display: none;
@@ -39,11 +40,11 @@ export class ResponsiveNavbar extends LitElement {
       }
       .navlinks__container {
         width: 100%;
-        height: calc(100vh - 64px);
+        height: 91vh;
         display: none;
         background-color: var(--menu-background-color, #ffffff);
         position: absolute;
-        top: 64px;
+        top: 9vh;
         right: 0;
         bottom: 0;
         left: 0;
@@ -65,9 +66,12 @@ export class ResponsiveNavbar extends LitElement {
   @property({ type: Boolean, reflect: true, attribute: "menu-open" })
   menuOpen: boolean = false;
 
+  @property({ type: String, reflect: true, attribute: "nav-align" })
+  navAlign:string = 'left';
+
   render() {
     return html` <header>
-      <nav class="nav">
+      <nav class="nav ${this.navAlign === 'right' ? 'nav--align-right' : ''}">
         <button id="menu-icon__button" @click=${this._toggleMenu}>
           ${this.menuOpen
             ? html`<slot name="close-icon"><span>${closeIcon}</span></slot>`

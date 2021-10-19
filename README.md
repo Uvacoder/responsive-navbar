@@ -2,17 +2,22 @@
 
 ## Customization
 
+### Properties
+
+- `menu-open` - Determines whether the mobile menu is open or not
+- `nav-align` - Where the navlinks container should be aligned. Defaults to the left.
+
 ### Slots
 
-- `close-icon`
-- `menu-icon`
-- `logo`
-- `navlinks`
+- `close-icon` - The icon for closing the mobile menu. Should be wrapped in a `<span>`.
+- `menu-icon` - The icon for opening the mobile menu. Should be wrapped in a `<span>`.
+- `logo` - Use this slot to insert your own logo on the left side of the navbar
+- `navlinks` - The list of primary navigation links. Shared across desktop and mobile.
 
 ### CSS
 
-- `--navbar-background-color`
-- `--menu-background-color`
+- `--navbar-background-color` - Background color of the navbar.
+- `--menu-background-color` - Background color of the mobile menu.
 
 ## Working Example
 
