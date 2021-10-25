@@ -14,7 +14,7 @@ export class ResponsiveNavbar extends LitElement {
     }
     .nav {
       width: 100%;
-      padding: 0.25rem 1rem;
+      /* padding: 0 1rem; */
       display: flex;
       align-items: center;
       background-color: var(--navbar-background-color, #ffffff);
