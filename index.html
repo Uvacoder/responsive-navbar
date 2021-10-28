@@ -16,15 +16,16 @@
     responsive-navbar {
       --navbar-background-color: black;
       --menu-background-color: black;
-      color: white; 
+      color: white;
     }
 
     .navlinks__list {
       margin: 0;
-      padding: 0;
+      padding: 1rem 0;
       display: flex;
       list-style: none;
     }
+
     .navlinks__list li {
       margin-left: 1rem;
       text-transform: uppercase;
@@ -37,6 +38,20 @@
     .navlinks__list li a {
       color: inherit;
       text-decoration: none;
+    }
+
+    .action-items__container {
+      display: flex;
+      padding: 1rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background-color: white;
+      color: black;
+      font-weight: 900;
+      border-radius: 0.25rem;
     }
 
     @media only screen and (max-width: 475px) {
@@ -52,7 +67,7 @@
       }
     }
 
-    section{
+    section {
       padding: 0 1rem;
     }
   </style>
@@ -69,34 +84,37 @@
       <li><a href="/#">About</a></li>
       <li><a href="/#">Contact</a></li>
     </ul>
+    <div class="action-items__container" slot="action-items">
+      <a class="btn" href="/#">Test</a>
+    </div>
   </responsive-navbar>
   <section>
-  <h1>Responsive Navbar Example</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna
-    aliqua. Diam in arcu cursus euismod quis viverra nibh cras. Pulvinar proin gravida hendrerit lectus a. Nulla
-    malesuada pellentesque elit eget gravida cum sociis. Sit amet nulla facilisi morbi tempus iaculis. Mattis enim ut
-    tellus elementum. Elit scelerisque mauris pellentesque pulvinar. Turpis in eu mi bibendum neque egestas congue.
-    Vestibulum lectus mauris ultrices eros in cursus turpis. Porttitor lacus luctus accumsan tortor posuere ac ut
-    consequat semper. Integer malesuada nunc vel risus. Tellus mauris a diam maecenas sed enim ut sem viverra</p>
+    <h1>Responsive Navbar Example</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna
+      aliqua. Diam in arcu cursus euismod quis viverra nibh cras. Pulvinar proin gravida hendrerit lectus a. Nulla
+      malesuada pellentesque elit eget gravida cum sociis. Sit amet nulla facilisi morbi tempus iaculis. Mattis enim ut
+      tellus elementum. Elit scelerisque mauris pellentesque pulvinar. Turpis in eu mi bibendum neque egestas congue.
+      Vestibulum lectus mauris ultrices eros in cursus turpis. Porttitor lacus luctus accumsan tortor posuere ac ut
+      consequat semper. Integer malesuada nunc vel risus. Tellus mauris a diam maecenas sed enim ut sem viverra</p>
 
-  <p>Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Enim nec dui nunc mattis. Porta lorem mollis
-    aliquam ut porttitor leo. Placerat orci nulla pellentesque dignissim enim sit amet venenatis. Et odio pellentesque
-    diam volutpat. At varius vel pharetra vel turpis nunc eget. Magna etiam tempor orci eu. Lobortis scelerisque
-    fermentum dui faucibus in ornare quam viverra orci. Diam maecenas sed enim ut sem. Vehicula ipsum a arcu cursus
-    vitae congue mauris. Parturient montes nascetur ridiculus mus mauris vitae ultricies. Velit scelerisque in dictum
-    non consectetur a erat nam. Aliquam faucibus purus in massa tempor nec feugiat nisl. Euismod nisi porta lorem
-    mollis
-    aliquam ut porttitor leo. Velit aliquet sagittis id consectetur. Pharetra et ultrices neque ornare aenean euismod.
-  </p>
+    <p>Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Enim nec dui nunc mattis. Porta lorem mollis
+      aliquam ut porttitor leo. Placerat orci nulla pellentesque dignissim enim sit amet venenatis. Et odio pellentesque
+      diam volutpat. At varius vel pharetra vel turpis nunc eget. Magna etiam tempor orci eu. Lobortis scelerisque
+      fermentum dui faucibus in ornare quam viverra orci. Diam maecenas sed enim ut sem. Vehicula ipsum a arcu cursus
+      vitae congue mauris. Parturient montes nascetur ridiculus mus mauris vitae ultricies. Velit scelerisque in dictum
+      non consectetur a erat nam. Aliquam faucibus purus in massa tempor nec feugiat nisl. Euismod nisi porta lorem
+      mollis
+      aliquam ut porttitor leo. Velit aliquet sagittis id consectetur. Pharetra et ultrices neque ornare aenean euismod.
+    </p>
 
-  <p>Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Amet volutpat consequat mauris nunc
-    congue nisi vitae suscipit. Et odio pellentesque diam volutpat commodo sed. Ut morbi tincidunt augue interdum.
-    Cursus metus aliquam eleifend mi. Lobortis mattis aliquam faucibus purus in massa tempor. Sit amet justo donec
-    enim
-    diam. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Eros donec ac odio tempor orci dapibus.
-    Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Turpis cursus in hac habitasse platea
-    dictumst quisque sagittis purus.</p>
+    <p>Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Amet volutpat consequat mauris nunc
+      congue nisi vitae suscipit. Et odio pellentesque diam volutpat commodo sed. Ut morbi tincidunt augue interdum.
+      Cursus metus aliquam eleifend mi. Lobortis mattis aliquam faucibus purus in massa tempor. Sit amet justo donec
+      enim
+      diam. Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Eros donec ac odio tempor orci dapibus.
+      Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Turpis cursus in hac habitasse platea
+      dictumst quisque sagittis purus.</p>
   </section>
 </body>
 
