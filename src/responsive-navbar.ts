@@ -42,7 +42,7 @@ export class ResponsiveNavbar extends LitElement {
         margin-right: 0.5rem;
         color: inherit;
       }
-      .navlinks__container {
+      .nav-links__container {
         width: 100%;
         height: 93vh;
         display: none;
@@ -54,7 +54,7 @@ export class ResponsiveNavbar extends LitElement {
         left: 0;
         z-index: 9999;
       }
-      .navlinks__container--open {
+      .nav-links__container--open {
         display: block;
       }
     }
@@ -82,11 +82,11 @@ export class ResponsiveNavbar extends LitElement {
           <slot name="logo"> </slot>
         </div>
         <div
-          class="navlinks__container ${this.menuOpen
-            ? "  navlinks__container--open"
+          class="nav-links__container ${this.menuOpen
+            ? "  nav-links__container--open"
             : ""}"
         >
-          <slot name="navlinks"></slot>
+          <slot name="nav-links"></slot>
         </div>
       </nav>
       <section class="action-items__section">
