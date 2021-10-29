@@ -1,4 +1,4 @@
-# responsive-navbar
+# responsive-navbar Lit Web Component
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vite-1heqg6?file=index.html)
 
