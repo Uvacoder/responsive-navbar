@@ -19,6 +19,11 @@
       color: white;
     }
 
+    #logo__container {
+      display: flex;
+      padding: 0.5rem;
+    }
+
     .nav-links__list {
       margin: 0;
       padding: 1rem 0;
@@ -76,9 +81,9 @@
 
 <body>
   <responsive-navbar>
-    <!-- <div slot="logo">
-      <p>Logo</p>
-    </div> -->
+    <div id="logo__container" slot="logo">
+      <h1>Logo</h1>
+    </div>
     <ul class="nav-links__list" slot="nav-links">
       <li><a href="/#">Home</a></li>
       <li><a href="/#">About</a></li>

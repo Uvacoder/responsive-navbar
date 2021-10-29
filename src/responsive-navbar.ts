@@ -12,6 +12,11 @@ export class ResponsiveNavbar extends LitElement {
       display: flex;
       background-color: var(--navbar-background-color, #ffffff);
     }
+    .navbar__container {
+      width: 100%;
+      height: 64px;
+      display: flex;
+    }
     .nav {
       width: 100%;
       display: flex;
@@ -44,11 +49,11 @@ export class ResponsiveNavbar extends LitElement {
       }
       .nav-links__container {
         width: 100%;
-        height: 93vh;
+        height: calc(100vh - 64px);
         display: none;
         background-color: var(--menu-background-color, #ffffff);
         position: absolute;
-        top: 7vh;
+        top: 64px;
         right: 0;
         bottom: 0;
         left: 0;
@@ -72,26 +77,28 @@ export class ResponsiveNavbar extends LitElement {
 
   render() {
     return html` <header>
-      <nav class="nav ${this.navAlign === "right" ? "nav--align-right" : ""}">
-        <button id="menu-icon__button" @click=${this._toggleMenu}>
-          ${this.menuOpen
-            ? html`<slot name="close-icon"><span>${closeIcon}</span></slot>`
-            : html`<slot name="menu-icon"><span>${menuIcon}</span></slot>`}
-        </button>
-        <div class="logo__container">
-          <slot name="logo"> </slot>
-        </div>
-        <div
-          class="nav-links__container ${this.menuOpen
-            ? "  nav-links__container--open"
-            : ""}"
-        >
-          <slot name="nav-links"></slot>
-        </div>
-      </nav>
-      <section class="action-items__section">
-        <slot name="action-items"></slot>
-      </section>
+      <div class="navbar__container">
+        <nav class="nav ${this.navAlign === "right" ? "nav--align-right" : ""}">
+          <button id="menu-icon__button" @click=${this._toggleMenu}>
+            ${this.menuOpen
+              ? html`<slot name="close-icon"><span>${closeIcon}</span></slot>`
+              : html`<slot name="menu-icon"><span>${menuIcon}</span></slot>`}
+          </button>
+          <div class="logo__container">
+            <slot name="logo"> </slot>
+          </div>
+          <div
+            class="nav-links__container ${this.menuOpen
+              ? "  nav-links__container--open"
+              : ""}"
+          >
+            <slot name="nav-links"></slot>
+          </div>
+        </nav>
+        <section class="action-items__section">
+          <slot name="action-items"></slot>
+        </section>
+      </div>
     </header>`;
   }
 
